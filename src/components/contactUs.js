@@ -1,6 +1,8 @@
 import React, { useState }from 'react';
 import axios from 'axios'
 
+import "./contactUs.css"
+
 
 export default function ContactUs() {
     const [status, setStatus] = useState({
@@ -9,6 +11,7 @@ export default function ContactUs() {
         info: { error: false, msg: null }
     })
     const [inputs, setInputs] = useState({
+        name:'',
         email: '',
         message: ''
     })
@@ -20,6 +23,7 @@ export default function ContactUs() {
             info: { error: false, msg: msg }
             })
             setInputs({
+            name: '',
             email: '',
             message: ''
             })
@@ -63,12 +67,24 @@ export default function ContactUs() {
         <div>
             <hr />
             <form onSubmit={handleOnSubmit}>
+                <label htmlFor="name">Full Name</label>
+                <input
+                id="name"
+                type="text"
+                name="name"
+                onChange={handleOnChange}
+                placeholder="First and Last"
+                required
+                value={inputs.name}
+                />
+
                 <label htmlFor="email">Email</label>
                 <input
                 id="email"
                 type="email"
                 name="_replyto"
                 onChange={handleOnChange}
+                placeholder="email@domain.tld"
                 required
                 value={inputs.email}
                 />
@@ -78,6 +94,7 @@ export default function ContactUs() {
                 id="message"
                 name="message"
                 onChange={handleOnChange}
+                placeholder="Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec ullamcorper nulla non metus auctor fringilla nullam quis risus."
                 required
                 value={inputs.message}
                 />
