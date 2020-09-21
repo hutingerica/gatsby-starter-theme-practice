@@ -6,7 +6,7 @@ import ContactUs from "../components/contactUs";
 const Contact = () => (
     <div>
         <SEO title="Contact" />
-        <h1>Leave me any comment please</h1>
+        <h1>contact me</h1>
         <ContactUs/>
     </div>
 )
